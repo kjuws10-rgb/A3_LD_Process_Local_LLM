@@ -1,0 +1,6 @@
+bin/
+obj/
+packaging/cache/
+packaging/.cache/
+packaging/output/
+*.user
