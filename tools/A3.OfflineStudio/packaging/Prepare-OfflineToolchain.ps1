@@ -6,7 +6,7 @@ Set-StrictMode -Version 2.0
 . (Join-Path $PSScriptRoot 'OfflineBundle.Core.ps1')
 if (-not $RepositoryPath -and -not $ValidateCatalogOnly) {
     $appRepository = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
-    $candidates = @((Join-Path $appRepository 'Project'), (Join-Path (Split-Path -Parent $appRepository) 'A3_LD_Process_SW_IPS'))
+    $candidates = @((Join-Path (Split-Path -Parent $PSScriptRoot) 'Project'), (Join-Path $appRepository 'Project'), (Join-Path (Split-Path -Parent $appRepository) 'A3_LD_Process_SW_IPS'))
     $RepositoryPath = $candidates | Where-Object { Test-Path -LiteralPath (Join-Path $_ 'Drilling.sln') -PathType Leaf } | Select-Object -First 1
     if (-not $RepositoryPath) {
         Add-Type -AssemblyName System.Windows.Forms

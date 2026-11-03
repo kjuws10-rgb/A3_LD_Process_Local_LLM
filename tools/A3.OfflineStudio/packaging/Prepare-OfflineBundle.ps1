@@ -17,6 +17,7 @@ Set-StrictMode -Version 2.0
 . (Join-Path $PSScriptRoot 'OfflineBundle.Core.ps1')
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $PSScriptRoot 'output' }
 if (-not $CacheDirectory) { $CacheDirectory = Join-Path $PSScriptRoot '.cache' }
+if (-not $AppDirectory -and -not $ModelRuntimeOnly -and (Test-Path -LiteralPath (Join-Path $PSScriptRoot 'PublishedApp/A3.OfflineStudio.exe') -PathType Leaf)) { $AppDirectory = Join-Path $PSScriptRoot 'PublishedApp' }
 
 # Versions, byte counts and digests were checked against official publisher APIs.
 # Changing a model/runtime requires reviewing and pinning all four fields together.
